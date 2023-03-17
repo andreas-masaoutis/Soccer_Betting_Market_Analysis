@@ -10,7 +10,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
 
-from app import app
+from my_app import app
 
 ## load the data
 
