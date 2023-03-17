@@ -20,6 +20,8 @@ df3 = pd.read_pickle('main_bookmakers_3')
 
 df = pd.concat([df1,df2,df3], axis=0)
 
+## In order to reduce the memory footprint we delete dfs we don;t need anymore
+del df1, df2, df3
 
 bookmaker_name = ['B365', 'BS', 'BW', 'GB', 'IW', 'LB'
                   , 'PS', 'PSC', 'SB', 'SJ', 'VC', 'WH']
