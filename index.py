@@ -4,8 +4,8 @@ from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
 # must add this line in order for the app to be deployed successfully on Heroku
-from app import server
-from app import app
+from my_app import server
+from my_app import app
 # import all pages in the app
 from apps import overround, bias, home, dataset, introduction
 
