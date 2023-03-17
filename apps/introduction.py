@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 import dash_table
 import dash_bootstrap_components as dbc
 
-from app import app
+from my_app import app
 
 # needed only if running this as a single page app
 #external_stylesheets = [dbc.themes.LUX]
