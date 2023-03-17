@@ -16,7 +16,7 @@ import plotly.io as pio
 import pandas as pd
 import numpy as np
 
-from app import app
+from my_app import app
 
 # needed if running single page dash app instead
 #external_stylesheets = [dbc.themes.LUX]
