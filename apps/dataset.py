@@ -15,7 +15,7 @@ import pandas as pd
 import numpy as np
 
 
-from app import app
+from my_app import app
 
 # needed only if running this as a single page app
 #external_stylesheets = [dbc.themes.LUX]
