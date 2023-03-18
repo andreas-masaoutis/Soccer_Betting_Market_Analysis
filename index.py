@@ -6,7 +6,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 
-# must add this line in order for the app to be deployed successfully on Heroku
+# must add this import in order for the app to be deployed successfully on Render
+from my_app import server
 from my_app import app
 
 # import all pages in the app
