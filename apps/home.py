@@ -21,7 +21,7 @@ layout = html.Div(
         dbc.Container(
             [
                 html.Div([ dcc.Markdown(f"""{md_content}""")],
-                         style={"text-align": "justify"}),
+                         style={"text-align": "justify","font-size": "17px"}),
                             
                 dbc.Row(
                     [
