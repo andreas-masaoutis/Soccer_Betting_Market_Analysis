@@ -21,9 +21,9 @@ with open("dataset.md", encoding="utf-8") as md_file:
 
 
 ## load the data
-df1 = pd.read_pickle("main_bookmakers_1")
-df2 = pd.read_pickle("main_bookmakers_2")
-df3 = pd.read_pickle("main_bookmakers_3")
+df1 = pd.read_pickle("data/main_bookmakers_1")
+df2 = pd.read_pickle("data/main_bookmakers_2")
+df3 = pd.read_pickle("data/main_bookmakers_3")
 
 df = pd.concat([df1, df2, df3], axis=0)
 
