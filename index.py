@@ -34,7 +34,7 @@ navbar = dbc.Navbar(
                 # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
                     [
-                        dbc.Col(html.Img(src="/assets/ball.png", height="40px")),
+                        dbc.Col(html.Img(src="/assets/favicon.ico", height="40px")),
                         dbc.Col(
                             dbc.NavbarBrand(
                                 "Soccer Betting Market Analysis", className="ml-2"
