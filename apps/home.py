@@ -56,48 +56,34 @@ layout = html.Div(
                             dbc.Card(
                                 children=[
                                     html.H3(
-                                        children="Get the original datasets used in this dashboard",
+                                        children="Get the original datasets used for these dashboards",
                                         className="text-center",
                                     ),
-                                    dbc.Row(
-                                        [
-                                            dbc.Col(
-                                                dbc.Button(
-                                                    "CSV files",
-                                                    href="https://www.football-data.co.uk/downloadm.php",
-                                                    color="primary",
-                                                ),
-                                                className="mt-3",
-                                            ),
-                                            dbc.Col(
-                                                dbc.Button(
-                                                    "Database",
-                                                    href="https://andreas-masaoutis.github.io",
-                                                    color="primary",
-                                                ),
-                                                className="mt-3",
-                                            ),
-                                        ],
-                                        justify="center",
+                                   
+                                    dbc.Button(
+                                        "CSV files",
+                                        href="https://www.football-data.co.uk/downloadm.php",
+                                        color="primary",
+                                        className="mt-3",
                                     ),
                                 ],
                                 body=True,
                                 color="dark",
                                 outline=True,
                             ),
-                            width=4,
+                            width=6,
                             className="mb-4",
                         ),
                         dbc.Col(
                             dbc.Card(
                                 children=[
                                     html.H3(
-                                        children="Access the code used to build this dashboard",
+                                        children="Access the code used to build these dashboards",
                                         className="text-center",
                                     ),
                                     dbc.Button(
                                         "GitHub",
-                                        href="https://github.com/andreas-masaoutis",
+                                        href="https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis",
                                         color="primary",
                                         className="mt-3",
                                     ),
@@ -106,28 +92,7 @@ layout = html.Div(
                                 color="dark",
                                 outline=True,
                             ),
-                            width=4,
-                            className="mb-4",
-                        ),
-                        dbc.Col(
-                            dbc.Card(
-                                children=[
-                                    html.H3(
-                                        children="Read the blog article detailing the process",
-                                        className="text-center",
-                                    ),
-                                    dbc.Button(
-                                        "My Blog",
-                                        href="https://andreas-masaoutis.github.io",
-                                        color="primary",
-                                        className="mt-3",
-                                    ),
-                                ],
-                                body=True,
-                                color="dark",
-                                outline=True,
-                            ),
-                            width=4,
+                            width=6,
                             className="mb-4",
                         ),
                     ],
