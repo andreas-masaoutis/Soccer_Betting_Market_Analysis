@@ -16,7 +16,7 @@ from my_app import app
 
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-with open("dataset.md", encoding="utf-8") as md_file:
+with open("texts/dataset.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 

@@ -46,7 +46,7 @@ columns_selection = [bookie + "_ovr" for bookie in bookmaker_name]
 bookmaker_selection = [bookie + "_ovr" for bookie in bookmaker_name]
 
 
-with open("overround.md", encoding="utf-8") as md_file:
+with open("texts/overround.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 

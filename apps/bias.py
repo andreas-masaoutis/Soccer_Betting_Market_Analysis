@@ -53,7 +53,7 @@ options = (
 )
 
 
-with open("bias.md", encoding="utf-8") as md_file:
+with open("texts/bias.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 
