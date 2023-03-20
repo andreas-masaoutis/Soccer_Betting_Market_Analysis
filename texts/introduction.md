@@ -1,4 +1,4 @@
-## The favourite-longshot bias in soccer betting
+### The favourite-longshot bias in soccer betting
 
 Why do we care you ask? Well, there is a lot of activity by professional/academic economists on that issue. The reason being, they are interested in markets and they see soccer betting as a market like any other. 
 
@@ -26,27 +26,27 @@ And here is where the overound comes into the picture. The sum of the probabilit
 
 And here is the catch. How do bookmakers adjust their prices in order to incorporate their profit margin? Different ways, can make a big difference. Let us see an example.
 
-Suppose there is a soccer match which with the following characteristics:
+Suppose there is a soccer match with the following characteristics:
 
-- 52% Homewin, implies a true price of 1/0.52 = 1.92
-- 29% Draw, implies a true price of 1/0.29 = 3.44
-- 19% Awaywin, implies a true price of 1/0.19 = 5.26
+- 50% Homewin, implies a true price of 1/0.50 = 2.00
+- 30% Draw, implies a true price of 1/0.30 = 3.33
+- 20% Awaywin, implies a true price of 1/0.20 = 5.00
 
-Suppose we want to apply an overround of 10%. How should we do that? If we evenly split the overround then we get the prices we begun with:
+Suppose we want to apply an overround of 10%. How should we do that? If we evenly split the overround then we get the following prices:
 
-- 1.92/1.1 = 1.75 for Homewin
-- 3.44/1.1 = 3.10 for Draw
-- 5.26/1.1 = 4.80 for Awaywin
+- 2.00/1.1 = 1.81 for Homewin
+- 3.33/1.1 = 3.02 for Draw
+- 5.00/1.1 = 4.54  for Awaywin
 
-Suppose that for some reason, we'd rather apply all the overround to the Homewin - unlikely but good for experimenting. In that case we'd get:
+Suppose that for some reason, we'd rather apply all the overround to the Homewin - unlikely but good for experimenting. In that case we'd get the following (note that only Homewin is discounted by a factor of 1.2):
 
-- 1.92/1.15 = 1.6 for Homewin
-- 3.44/1 = 3.4 for Draw
-- 5.26/1 = 5.26 for Awaywin
+- 2.00/1.2 = 1.66 for Homewin
+- 3.33/1 = 3.33 for Draw
+- 5.00/1 = 5.00 for Awaywin
 
-As it becomes obvious that the quoted prices can vary significantly, it is time for the favourite-longshot bias to come into the picture. Let us recall, that if the price for an event reflect its true probability, then in the long run, by choosing such events, one can expect to get the average return of the market. In the case of soccet betting, this is 1 minus the overround.
+As it becomes obvious, the quoted prices can vary significantly, and it is time for the favourite-longshot bias to come into the picture. Let us recall, that if the price for an event reflect its true probability, then in the long run, by choosing such events, one can expect to get the average return of the market. In the case of soccer betting, this is 1 minus the overround.
 
-And that is where the problem is. There is evidence that by consistently betting on different prices, one gets different returns - something that shouldn't be. Specificaly, by betting on longshots, one has returns lower than the market average, while the reverse is true when by betting on favourites.
+And that is where the problem is. There is evidence that by consistently betting on different prices, one gets different returns - something that shouldn't be. Specifically, by betting on longshots, one has returns lower than the market average, while the reverse is true when by betting on favourites.
 
 If this is indeed the case, could then the overround and the way it is being applied, be an explanation for what we observe? 
 
@@ -54,15 +54,6 @@ Let us see...
 
 ------
 
-For more details take a look at these publications:
+For more details take a look at this publication:
 
-- Adjusting Bookmaker’s Odds to Allow for Overround
-- Football Betting and the Efficient Market Hypothesis
-- Bookmaker margins and favourite-longshot bias in football prediction markets
-- Prediction accuracy of different market structures — bookmakers versus a betting exchange
-
-
-
-
-
-
+- [Wisdom of the Crowd](https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf)
