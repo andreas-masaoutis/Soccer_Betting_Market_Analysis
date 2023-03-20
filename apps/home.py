@@ -17,12 +17,13 @@ with open("texts/home.md", encoding="utf-8") as md_file:
 
 # change to app.layout if running as single page app instead
 layout = html.Div(
-    [   
+    [
         dbc.Container(
             [
-                html.Div([ dcc.Markdown(f"""{md_content}""")],
-                         style={"text-align": "justify","font-size": "17px"}),
-                            
+                html.Div(
+                    [dcc.Markdown(f"""{md_content}""")],
+                    style={"text-align": "justify", "font-size": "17px"},
+                ),
                 dbc.Row(
                     [
                         dbc.Col(
@@ -32,9 +33,8 @@ layout = html.Div(
                                         children="Get the original datasets used for these dashboards",
                                         className="text-center",
                                     ),
-                                   
                                     dbc.Button(
-                                        "CSV files",
+                                        "Data files",
                                         href="https://www.football-data.co.uk/downloadm.php",
                                         color="primary",
                                         className="mt-3",
