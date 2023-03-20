@@ -7,6 +7,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
 import numpy as np
+import dash_bootstrap_components as dbc
 
 from my_app import app
 
@@ -23,7 +24,7 @@ df3 = pd.read_pickle("data/main_bookmakers_3")
 
 df = pd.concat([df1, df2, df3], axis=0)
 
-## In order to reduce the memory footprint we delete dfs we don;t need anymore
+## In order to reduce the memory footprint we delete dfs we don't need anymore
 del df1, df2, df3
 
 bookmaker_name = [
@@ -53,42 +54,60 @@ with open("texts/overround.md", encoding="utf-8") as md_file:
 ## the main elements of the page
 layout = html.Div(
     children=[
-        dcc.Markdown(
-            f"""{md_content}""",
-            style={"margin": "0% 10% ", "text-align": "justify"},
-        ),
-        dcc.Graph(
-            figure=px.line(
-                df.groupby("Season")[columns_selection].mean(), template="plotly_dark"
-            )
-        ),
-        dcc.Graph(id="overround-year"),
-        dcc.RadioItems(
-            id="year-radio",
-            ## watch out for the double comprehension, dictionary inside list
-            options=[
-                {key: year for key in ["label", "value"]}
-                for year in range(df["Season"].min(), 1 + df["Season"].max())
-            ],
-            value=2000,
-            labelStyle={"display": "inline-block"},
-        ),
-        dcc.Graph(id="overround-bookie"),
-        dcc.RadioItems(
-            id="bookie-radio",
-            ## watch out for the double comprehension, dictionary inside list
-            options=[
-                {key: year for key in ["label", "value"]}
-                for year in bookmaker_selection
-            ],
-            value="B365_ovr",
-            labelStyle={"display": "inline-block"},
-        ),
+        dbc.Container(
+            [
+                dcc.Markdown(
+                    f"""{md_content}""",
+                    style={"text-align": "justify", "font-size": "17px"},
+                ),
+                html.P(
+                    "The historical trend of the overround",
+                    style={"text-align": "center", "font-size": "17px"},
+                ),
+                dcc.Graph(
+                    figure=px.line(
+                        df.groupby("Season")[columns_selection].mean(),
+                        template="plotly_dark",
+                        labels={"value": "Overround"},
+                    )
+                ),
+                html.P(
+                    "The overround per Team",
+                    style={"text-align": "center", "font-size": "17px"},
+                ),
+                dcc.Graph(id="overround-year"),
+                dcc.RadioItems(
+                    id="year-radio",
+                    ## watch out for the double comprehension, dictionary inside list
+                    options=[
+                        {key: year for key in ["label", "value"]}
+                        for year in range(df["Season"].min(), 1 + df["Season"].max())
+                    ],
+                    value=2000,
+                    labelStyle={"display": "inline-block"},
+                ),
+                html.P(
+                    "The overround per Division",
+                    style={"text-align": "center", "font-size": "17px"},
+                ),
+                dcc.Graph(id="overround-bookie"),
+                dcc.RadioItems(
+                    id="bookie-radio",
+                    ## watch out for the double comprehension, dictionary inside list
+                    options=[
+                        {key: year for key in ["label", "value"]}
+                        for year in bookmaker_selection
+                    ],
+                    value="B365_ovr",
+                    labelStyle={"display": "inline-block"},
+                ),
+            ]
+        )
     ]
 )
 
 
-## the update mechanism for the page elements
+## the update mechanism for the overround per team
 @app.callback(Output("overround-year", "figure"), [Input("year-radio", "value")])
 def update_figure_overround_per_team(selected_year):
     """The second chart"""
@@ -103,14 +122,19 @@ def update_figure_overround_per_team(selected_year):
 
     filtered_df = filtered_df.join(divs)
 
-    fig = px.line(filtered_df, template="plotly_dark", hover_data=["Div"])
+    fig = px.line(
+        filtered_df,
+        template="plotly_dark",
+        hover_data=["Div"],
+        labels={"value": "Overround"},
+    )
 
     fig.update_layout(transition_duration=500)
 
     return fig
 
 
-## the update mechanism for the page elements
+## the update mechanism for the overround per division
 @app.callback(Output("overround-bookie", "figure"), [Input("bookie-radio", "value")])
 def update_figure_overround_per_division(bookie):
     """The last chart"""
@@ -120,7 +144,7 @@ def update_figure_overround_per_division(bookie):
         filtered_df, values=bookie, index=["Div"], columns=["Season"], aggfunc=np.mean
     )
 
-    fig = px.scatter(filtered_df, template="plotly_dark")
+    fig = px.scatter(filtered_df, template="plotly_dark", labels={"value": "Overround"})
 
     fig.update_layout(transition_duration=500)
 
