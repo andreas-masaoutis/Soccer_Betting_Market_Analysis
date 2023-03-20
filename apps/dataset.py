@@ -6,7 +6,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
-
+import dash_bootstrap_components as dbc
 
 
 from my_app import app
@@ -27,7 +27,7 @@ df3 = pd.read_pickle("data/main_bookmakers_3")
 
 df = pd.concat([df1, df2, df3], axis=0)
 
-## In order to reduce the memory footprint we delete dfs we don;t need anymore
+## In order to reduce the memory footprint we delete dfs we don't need anymore
 del df1, df2, df3
 
 bookmaker_name = [
@@ -51,20 +51,30 @@ bookmaker_selection = [bookie + "H" for bookie in bookmaker_name]
 # change to app.layout if running as single page app instead
 layout = html.Div(
     children=[
-        dcc.Markdown(f"""{md_content}"""),
-        dcc.Graph(id="graph-with-slider"),
-        dcc.RadioItems(
-            id="bookmaker-radio",
-            ## watch out for the double comprehension, dictionary inside list
-            options=[
-                {key: sign for key in ["label", "value"]}
-                for sign in bookmaker_selection
-            ],
-            value="B365H",
-            labelStyle={"display": "inline-block"},
+        dbc.Container(
+            [
+                html.Div(
+                    [dcc.Markdown(f"""{md_content}""")],
+                    style={"text-align": "justify", "font-size": "17px"},
+                ),
+            ]
+        ),
+        dbc.Container(
+            [
+                dcc.Graph(id="graph-with-slider"),
+                dcc.RadioItems(
+                    id="bookmaker-radio",
+                    ## watch out for the double comprehension, dictionary inside list
+                    options=[
+                        {key: sign for key in ["label", "value"]}
+                        for sign in bookmaker_selection
+                    ],
+                    value="B365H",
+                    labelStyle={"display": "inline-block"},
+                ),
+            ]
         ),
     ],
-    style={"margin": "0% 10% ", "text-align": "center"},
 )
 
 # page callbacks
@@ -93,7 +103,7 @@ def update_figure(bookie):
     )
 
     fig = px.imshow(
-        pivoted_df, labels={"color": 'Completion %'}, template="plotly_dark"
+        pivoted_df, labels={"color": "Completion %"}, template="plotly_dark"
     )
 
     return fig
