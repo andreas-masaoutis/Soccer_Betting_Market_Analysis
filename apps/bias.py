@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import dash_bootstrap_components as dbc
 
 
 from my_app import app
@@ -20,7 +21,7 @@ df3 = pd.read_pickle("data/main_bookmakers_3")
 
 df = pd.concat([df1, df2, df3], axis=0)
 
-## In order to reduce the memory footprint we delete dfs we don;t need anymore
+## In order to reduce the memory footprint we delete dfs we don't need anymore
 del df1, df2, df3
 
 bookmaker_name = [
@@ -60,29 +61,33 @@ with open("texts/bias.md", encoding="utf-8") as md_file:
 # change to app.layout if running as single page app instead
 layout = layout = html.Div(
     children=[
-        dcc.Markdown(
-            f"""{md_content}""",
-            style={"margin": "0% 10% ", "text-align": "justify"},
-        ),
-        dcc.Graph(id="graph-bias"),
-        dcc.RadioItems(
-            id="bookie-radio",
-            ## watch out for the double comprehension, dictionary inside list
-            options=[
-                {"label": avalue, "value": akey}
-                for akey, avalue in enumerate(bookmaker_name)
-            ],
-            value=0,
-            labelStyle={"display": "inline-block"},
-        ),
-        dcc.RangeSlider(
-            id="year--range-slider",
-            min=df["Season"].min(),
-            max=df["Season"].max(),
-            value=[df["Season"].min(), df["Season"].max()],
-            marks={str(year): str(year) for year in df["Season"].unique()},
-            step=1,
-        ),
+        dbc.Container(
+            [
+                dcc.Markdown(
+                    f"""{md_content}""",
+                    style={"text-align": "justify", "font-size": "17px"},
+                ),
+                dcc.Graph(id="graph-bias"),
+                dcc.RadioItems(
+                    id="bookie-radio",
+                    ## watch out for the double comprehension, dictionary inside list
+                    options=[
+                        {"label": avalue, "value": akey}
+                        for akey, avalue in enumerate(bookmaker_name)
+                    ],
+                    value=0,
+                    labelStyle={"display": "inline-block"},
+                ),
+                dcc.RangeSlider(
+                    id="year--range-slider",
+                    min=df["Season"].min(),
+                    max=df["Season"].max(),
+                    value=[df["Season"].min(), df["Season"].max()],
+                    marks={str(year): str(year) for year in df["Season"].unique()},
+                    step=1,
+                ),
+            ]
+        )
     ]
 )
 
@@ -167,10 +172,10 @@ def update_figure(bookie, year):
 
         fig.add_trace(
             go.Scatter(
-                # x=[i for i in range(len(list(grouped_df.return_rate)))],
                 x=list(range(len(list(grouped_df.return_rate)))),
                 y=list(grouped_df.return_rate),
                 mode="lines",
+                name="Return_" + signs[i],
             ),
             row=1,
             col=i + 1,
@@ -178,16 +183,15 @@ def update_figure(bookie, year):
 
         fig.add_trace(
             go.Scatter(
-                # x=[i for i in range(len(list(grouped_df.return_rate)))],
                 x=list(range(len(list(grouped_df.return_rate)))),
                 y=2 - grouped_df[f"{columns_list[bookie][3]}"],
-                showlegend=False,
+                name="1-Overround_" + signs[i],
             ),
             row=1,
             col=i + 1,
         )
 
-    fig.update_layout(title_text=f"Multiple Subplots for {columns_list[bookie]}")
+    fig.update_layout(title_text="Multiple Subplots for HomeWin, Draw, and AwayWin")
     fig.update_layout(yaxis={"range": [0.7, 1.1]}, template="plotly_dark")
 
     return fig
