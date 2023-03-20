@@ -34,7 +34,7 @@ navbar = dbc.Navbar(
                 # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
                     [
-                        dbc.Col(html.Img(src="/assets/ball.png", height="40px")),
+                        dbc.Col(html.Img(src="/assets/favicon.ico", height="40px")),
                         dbc.Col(
                             dbc.NavbarBrand(
                                 "Soccer Betting Market Analysis", className="ml-2"
@@ -83,7 +83,19 @@ for i in [2]:
 
 # embedding the navigation bar
 app.layout = html.Div(
-    [dcc.Location(id="url", refresh=False), navbar, html.Div(id="page-content")]
+    [
+        dcc.Location(id="url", refresh=False),
+        navbar,
+        html.Div(id="page-content"),
+        html.Footer(
+            [
+                dbc.Container(
+                    [html.P("Soccer Betting Market Analysis - 2023")],
+                    style={"text-align": "center", "font-size": "17px"},
+                )
+            ]
+        ),
+    ]
 )
 
 
