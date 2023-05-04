@@ -1,3 +1,4 @@
+--extra-index-url https://alpine-wheels.github.io/index
 Brotli==1.0.9
 bson==0.5.10
 click==7.1.2
