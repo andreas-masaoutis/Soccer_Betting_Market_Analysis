@@ -8,7 +8,8 @@ WORKDIR /Soccer_Betting_Market_Analysis
  
 RUN git checkout dev \
     && cd project_documents \
-    && pip install -r requirements.txt
+    && pip install -r requirements.txt \
+    && pip cache purge
     
 EXPOSE 8050
 
