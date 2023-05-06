@@ -6,6 +6,6 @@ services:
     branch: dev 
     region: Frankfurt (EU Central) 
     plan: free # optional (defaults to starter instance type)
-    rootDir: /
+    rootDir: /app_files
     dockerCommand: # optional (defaults to Dockerfile command)
     autoDeploy: false
