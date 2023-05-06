@@ -6,7 +6,8 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 
-with open("texts/introduction.md", encoding="utf-8") as md_file:
+## The markdown file path is relative to index.py that imports this file
+with open("apps/texts/introduction.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 

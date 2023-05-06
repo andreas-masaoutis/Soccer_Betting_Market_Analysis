@@ -16,7 +16,8 @@ from my_app import app
 
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-with open("texts/dataset.md", encoding="utf-8") as md_file:
+## The markdown file path is relative to index.py that imports this file
+with open("apps/texts/dataset.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 
