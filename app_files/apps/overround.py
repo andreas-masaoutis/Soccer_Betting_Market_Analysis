@@ -47,7 +47,8 @@ columns_selection = [bookie + "_ovr" for bookie in bookmaker_name]
 bookmaker_selection = [bookie + "_ovr" for bookie in bookmaker_name]
 
 
-with open("texts/overround.md", encoding="utf-8") as md_file:
+## The markdown file path is relative to index.py that imports this file
+with open("apps/texts/overround.md", encoding="utf-8") as md_file:
     md_content = md_file.read()
 
 

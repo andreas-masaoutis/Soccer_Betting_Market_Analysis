@@ -11,4 +11,6 @@ RUN apt-get -y update \
 
 EXPOSE 8050
 
+WORKDIR app_files
+
 CMD python index.py
