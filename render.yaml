@@ -5,7 +5,7 @@ services:
     repo: https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis
     branch: dev
     region: Frankfurt (EU Central)
-    rootDir: 
+    rootDir: ./
     dockerfilePath: ./Dockerfile
-    dockerContext: .
+    dockerContext: ./
     autoDeploy: false
