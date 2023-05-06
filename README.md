@@ -14,5 +14,5 @@ All the data are stored in three pickles in the **data** folder. We split them i
 Various project documents, like the license and the requirements are in the **project_documents** folder.
 
 The main ingredients used in this project are: 
-- ![Python 3.8.6](https://img.shields.io/badge/python-3.8.6-blue.svg) Please note that different versions might fail when trying to read the pickled dataframes.
+- ![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg) Please note that different versions might fail when trying to read the pickled dataframes.
 - ![Dash 1.17.0](https://img.shields.io/badge/dash-1.17.0-blue.svg)
