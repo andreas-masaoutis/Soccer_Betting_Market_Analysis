@@ -6,6 +6,4 @@ services:
     branch: dev
     region: Frankfurt (EU Central)
     rootDir: app_files
-    dockerfilePath: ./Dockerfile
-    dockerContext: .
     autoDeploy: false
