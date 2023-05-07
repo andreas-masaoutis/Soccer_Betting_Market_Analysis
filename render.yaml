@@ -1,1 +1,6 @@
 services:
+  - type: web
+    name: Soccer_Betting_Market_Analysis
+    env: docker
+    repo: https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis.git
+    branch: dev
