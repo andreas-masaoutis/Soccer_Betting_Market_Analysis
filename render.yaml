@@ -5,4 +5,4 @@ services:
     repo: https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis
     branch: dev
     region: Frankfurt (EU Central)
-    rootDir: app_files
+    rootDir: .
