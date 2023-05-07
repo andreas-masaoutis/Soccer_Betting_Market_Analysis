@@ -2,9 +2,9 @@ services:
   - type: web
     name: Soccer_Betting_Market_Analysis
     env: docker
-    repo: https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis.git
+    repo: https://github.com/andreas-masaoutis/Soccer_Betting_Market_Analysis
     branch: dev
     region: Frankfurt (EU Central)
-    rootDir: /
+    rootDir: app_files/
     dockerfilePath: ./Dockerfile
     dockerContext: .
