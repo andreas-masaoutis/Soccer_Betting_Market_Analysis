@@ -18,9 +18,9 @@ At the root level you will find docker files for building a container for the ap
 ### How to use
 Clone the repository and then either:
 
-- Create and activate a venv and then run **python index.py** from a terminal or **index.py** from an IDE
+- Create and activate a venv, install the requirements from project_documnets and then run **python index.py** from a terminal or **index.py** from an IDE
 - Build the image using the Dockerfile and then run it mapping ports at 8050:8050
-- Use docker-compose and execute the yaml file
+- Use docker-compose.yaml file to build the image and run the container with **docker-compose up**
 
 In all these cases, the app should be accessible at http://localhost:8050/home, or http://0.0.0.0:8050/home 
 
