@@ -6,4 +6,3 @@ services:
     branch: dev
     region: Frankfurt (EU Central)
     rootDir: app_files
-    autoDeploy: false
